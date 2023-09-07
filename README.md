@@ -28,3 +28,23 @@ Uma Prova de Conceito (POC) para avaliar a resistência e desempenho de uma pilh
 ## Contribuições
 
 Sinta-se à vontade para contribuir com o projeto! Abra uma issue ou envie um Pull Request.
+
+
+## Atalhos
+
+* Listar os serviços
+
+kubectl get services
+
+* Listar os pods
+
+kubectl get pods
+
+* Mostra os detalhes do pod
+
+kubectl describe pod mysql-deployment-79b7d97df4-8r2lq
+
+* Mostra os logs dos pods
+
+kubectl logs mysql-deployment-79b7d97df4-8r2lq
+

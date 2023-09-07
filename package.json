@@ -1,0 +1,9 @@
+{
+  "name": "poc-stress-test",
+  "version": "1.0.0",
+  "description": "Scripts to set up and tear down the Kubernetes cluster for the POC Stress Test project.",
+  "scripts": {
+    "deploy-infra": "cd kunbernetes && kubectl apply -f ./ --recursive",
+    "delete-infra": "echo 'Excluindo Deployments, StatefulSets e DaemonSets...' && kubectl delete deployments --all && kubectl delete statefulsets --all && kubectl delete daemonsets --all && echo 'Excluindo Services...' && kubectl delete services --all && echo 'Excluindo Persistent Volume Claims...' && kubectl delete pvc --all && echo 'Excluindo ConfigMaps e Secrets...' && kubectl delete configmaps --all && kubectl delete secrets --all && echo 'Excluindo Horizontal Pod Autoscalers...' && kubectl delete hpa --all && echo 'Excluindo Jobs e CronJobs...' && kubectl delete jobs --all && kubectl delete cronjobs --all && echo 'Excluindo Pods...' && kubectl delete pods --all && kubectl delete pv --all"
+  }
+}

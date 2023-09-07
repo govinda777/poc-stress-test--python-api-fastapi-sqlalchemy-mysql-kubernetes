@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app-pod
+spec:
+  containers:
+  - name: app-container
+    image: nginx:latest
+    env:
+    - name: DATABASE_HOST
+      value: mysql-service
+    - name: DATABASE_USER
+      valueFrom:
+        secretKeyRef:
+          name: mysql-secret
+          key: MYSQL_USER
+    - name: DATABASE_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: mysql-secret
+          key: MYSQL_PASSWORD
