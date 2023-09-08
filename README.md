@@ -48,3 +48,14 @@ kubectl describe pod mysql-deployment-79b7d97df4-8r2lq
 
 kubectl logs mysql-deployment-79b7d97df4-8r2lq
 
+## Como configurar acesso externo ao banco:
+
+
+### 1 - Intale as ferramentas de network 
+
+kubectl exec -it mysql-deployment-68bcc4765c-7rwht -- apt update
+kubectl exec -it mysql-deployment-68bcc4765c-7rwht -- apt install -y net-tools
+
+##
+
+kubectl get service mysql-clusterip-service
