@@ -48,14 +48,34 @@ kubectl describe pod mysql-deployment-79b7d97df4-8r2lq
 
 kubectl logs mysql-deployment-79b7d97df4-8r2lq
 
-## Como configurar acesso externo ao banco:
+Peço desculpas pela confusão anterior. Vou fornecer uma descrição detalhada com base na estrutura atual do seu repositório:
 
+---
 
-### 1 - Intale as ferramentas de network 
+# Arquitetura do Projeto
 
-kubectl exec -it mysql-deployment-68bcc4765c-7rwht -- apt update
-kubectl exec -it mysql-deployment-68bcc4765c-7rwht -- apt install -y net-tools
+Uma visão geral da estrutura do projeto e uma breve descrição de cada diretório e arquivo:
 
-##
+```
+/src
+|-- main.py  # Ponto de entrada da aplicação. Configura e inicializa a API FastAPI.
 
-kubectl get service mysql-clusterip-service
+|-- /infrastructure  # Diretório que contém configurações e inicializações relacionadas à infraestrutura, como banco de dados.
+|   |-- database.py  # Configuração e inicialização da base de dados.
+
+|-- /user  # Lógica e entidades relacionadas ao domínio do usuário.
+|   |-- /exception  # Diretório para tratar exceções específicas do domínio do usuário.
+|   
+|   |-- /model  # Define os modelos e esquemas relacionados ao domínio do usuário.
+|   |   |-- /request  # Esquemas para validação de dados de entrada nas rotas do usuário.
+|   |   |   |-- user_create_request.py  # Esquema para validar dados de entrada ao criar um novo usuário.
+|   |   |-- /response  # Esquemas para formatar a resposta das rotas do usuário.
+|   |   |-- user_mapper.py  # Funções para mapear entre entidades e esquemas.
+|   |   |-- user.py  # Define a entidade do usuário.
+|   
+|   |-- user_controller.py  # Define as rotas e controladores relacionados ao domínio do usuário.
+|   |-- user_repository.py  # Define o repositório do usuário, responsável por interagir com o banco de dados.
+|   |-- user_service.py  # Define os serviços relacionados ao usuário, que contêm a lógica de negócios.
+```
+
+---
