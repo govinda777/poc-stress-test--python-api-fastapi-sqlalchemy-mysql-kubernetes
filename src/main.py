@@ -1,13 +1,10 @@
-from fastapi import FastAPI
+# main.py
+from fastapi import FastAPI, Depends
+from .config import Container
+from .user.user_service import UserService
+
+container = Container()
+container.init_resources()
+container.wire(modules=[sys.modules[__name__]])
 
 app = FastAPI()
-
-
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
-
-
-@app.get("/hello/{name}")
-async def say_hello(name: str):
-    return {"message": f"Hello {name}"}
