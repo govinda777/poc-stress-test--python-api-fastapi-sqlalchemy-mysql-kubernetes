@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql-deployment
+  labels:
+    app: mysql
 spec:
   replicas: 1
   selector:
@@ -12,12 +14,9 @@ spec:
       labels:
         app: mysql
     spec:
-      securityContext:
-        runAsUser: 999
-        fsGroup: 999
       containers:
       - name: mysql
-        image: mysql/mysql-server:8.0
+        image: mysql:8.0
         ports:
         - containerPort: 3306
         env:
@@ -44,14 +43,6 @@ spec:
         volumeMounts:
         - name: mysql-persistent-storage
           mountPath: /var/lib/mysql
-      initContainers:
-      - name: volume-permissions
-        image: busybox
-        command: ["sh", "-c", "chown -R 999:999 /var/lib/mysql"]
-        volumeMounts:
-        - name: mysql-persistent-storage
-          mountPath: /var/lib/mysql
       volumes:
       - name: mysql-persistent-storage
-        persistentVolumeClaim:
-          claimName: mysql-pv-claim
+        emptyDir: {}
