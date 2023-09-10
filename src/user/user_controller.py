@@ -1,16 +1,14 @@
-# user_controller.py
-
 from fastapi import APIRouter, Depends, HTTPException
 from typing import List
-
 from user_service import UserService
-from user import User
+from model.user import User
+
 
 class UserController:
     router = APIRouter()
 
     def __init__(self, service: UserService):
-        self.service = service  # Aqui você pode inicializar o serviço. Se estiver usando injeção de dependência, pode ajustar isso.
+        self.service = service
 
     @router.post("/users/", response_model=User)
     def create_user(self, user: User):
