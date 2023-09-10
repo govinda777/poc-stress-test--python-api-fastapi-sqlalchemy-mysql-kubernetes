@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from typing import List
-from user_service import UserService
-from model.user import User
+from src.user.user_service import UserService
+from src.user.model.user import User
 
 
 class UserController:

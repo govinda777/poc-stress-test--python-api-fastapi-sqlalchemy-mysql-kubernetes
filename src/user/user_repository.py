@@ -1,8 +1,9 @@
-# user_repository.py
+from src.user.model.request.user_create_request import UserCreateRequest
+from src.user.model.request.user_update_request import UserUpdateRequest
+from src.user.model.user_mapper import UserMapper
+from src.user.exception.user_not_found_exception import UserNotFoundException
+from src.infrastructure.database import Database
 
-from model.user_mapper import UserMapper
-from exception.user_not_found_exception import UserNotFoundException
-from infrastructure.database import Database
 
 class UserRepository:
     def __init__(self, database: Database):
@@ -10,10 +11,10 @@ class UserRepository:
 
     def add(self, user: UserCreateRequest):
         self.database.add(user)
-        
+
     def update(self, user: UserUpdateRequest):
         self.database.update(user)
-        
+
     def delete(self, user: UserMapper):
         self.database.delete(user)
 

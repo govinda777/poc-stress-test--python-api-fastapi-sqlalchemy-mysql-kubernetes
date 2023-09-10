@@ -1,9 +1,9 @@
-from model.request.user_create_request import UserCreateRequest
-from model.request.user_delete_request import UserDeleteRequest
-from model.request.user_update_request import UserUpdateRequest
-from model.response.user_response import UserResponse
-from model.user_mapper import UserMapper
-from user_repository import UserRepository
+from src.user.model.request.user_create_request import UserCreateRequest
+from src.user.model.request.user_delete_request import UserDeleteRequest
+from src.user.model.request.user_update_request import UserUpdateRequest
+from src.user.model.response.user_response import UserResponse
+from src.user.model.user_mapper import UserMapper
+from src.user.user_repository import UserRepository
 
 
 class UserService:
