@@ -1,10 +1,14 @@
 # main.py
-from fastapi import FastAPI, Depends
+
+from fastapi import FastAPI
 from .config import Container
-from .user.user_service import UserService
+from config.route_config import RouteConfig
 
-container = Container()
-container.init_resources()
-container.wire(modules=[sys.modules[__name__]])
+class main:
+    container = Container()
+    container.init_resources()
+    container.wire(modules=[sys.modules[__name__]])
 
-app = FastAPI()
+    app = FastAPI()
+
+    RouteConfig(app)
