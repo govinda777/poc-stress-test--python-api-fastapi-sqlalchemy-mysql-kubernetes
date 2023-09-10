@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "poc-stress-test--python-api-fastapi-sqlalchemy-mysql-kubernetes"
+version = "0.1.0"
+description = "Uma Prova de Conceito (POC) para avaliar a resistência e desempenho de uma pilha tecnológica específica sob condições de carga elevada."
+authors = ["govinda777@gmail"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+fastapi = "^0.65.2"
+sqlalchemy = "^2.0.20"
+dependency-injector = "^4.41.0"
+sqlalchemy-orm = "^1.2.10"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.4"

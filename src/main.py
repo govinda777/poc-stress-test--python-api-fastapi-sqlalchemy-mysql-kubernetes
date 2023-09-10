@@ -1,5 +1,3 @@
-# main.py
-
 from fastapi import FastAPI
 from .config import Container
 from config.route_config import RouteConfig
