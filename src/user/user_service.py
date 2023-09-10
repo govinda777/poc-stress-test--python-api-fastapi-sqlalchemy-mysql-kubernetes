@@ -3,10 +3,10 @@
 from model.request.user_create_request import UserCreateRequest
 from model.request.user_delete_request import UserDeleteRequest
 from model.request.user_update_request import UserUpdateRequest
-from user_response import UserResponse
-from user_mapper import UserMapper
+from model.response.user_response import UserResponse
+from model.user_mapper import UserMapper
 from user_repository import UserRepository
-from user_not_found_exception import UserNotFoundException
+from exception.user_not_found_exception import UserNotFoundException
 
 class UserService:
     def __init__(self, repository: UserRepository):
